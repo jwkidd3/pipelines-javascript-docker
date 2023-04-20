@@ -26,9 +26,9 @@ stages:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
         tags: |
-          azureapp
+          ${tag}
     - task: Docker@2
       inputs:
         containerRegistry: 'DockerHub'
-        repository: 'azureapp'
+        repository: ${tag}
         command: 'push'
